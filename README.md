@@ -1,28 +1,40 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# [flaskToDo✅](https://dogukanurker.com/flasktodo)
 
-# Flask + Vercel
+Simple todo app built with Flask.
+<br/>
+[Contact](mailto:dogukanurker@icloud.com)<br/>
+[Dogukan Urker](https://dogukanurker.com)
+### [Demo Video 📺](https://youtu.be/GmPeXhBiihI)
+|              Desktop               |              Mobile               |
+| :--------------------------------: | :-------------------------------: |
+| ![appDesktop](/images/desktop.png) | ![appMobile](/images/mobile.jpeg) |
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+## Requirements 📦
 
-## Demo
+- Flask
+- Flaskwebgui <sub><sup>(if you run desktop.py)</sup></sub>
 
-https://flask-python-template.vercel.app/
+## Installation ⬇️
 
-## How it Works
+download source code from Github 💾
+`git clone https://github.com/DogukanUrker/flaskToDo.git`
 
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
+go to directory 📁
+`cd flaskToDo`
 
-## Running Locally
+install requirements.txt 🔽
+`pip install -r requirements.txt`
 
-```bash
-npm i -g vercel
-vercel dev
-```
+it's ready to run 🎉
+`python app.py`
+or
+`python desktop.py`
+for run flaskToDo as a desktop app 💯
 
-Your Flask application is now available at `http://localhost:3000`.
+### Contributors 💕
 
-## One-Click Deploy
+<a href="https://github.com/dogukanurker"><img src="https://avatars.githubusercontent.com/u/62756402" title="ngryman" width="80" height="80"></a>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+### Support 💰
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+<a href="https://dogukanurker.com/donate" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
