@@ -1,12 +1,15 @@
+import os
 import socket
 import sqlite3
 import secrets
-import dbChecker
 from datetime import datetime
 from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 app.secret_key = secrets.token_urlsafe(32)
+
+# Get the absolute path to the SQLite database file
+db_path = os.path.abspath("todos.db")
 
 
 def currentDate():
@@ -19,7 +22,7 @@ def currentTime():
 
 @app.route("/")
 def index():
-    connection = sqlite3.connect("todos.db")
+    connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
     cursor.execute("select * from todos")
     todos = cursor.fetchall()
@@ -28,7 +31,7 @@ def index():
 
 @app.route("/add/<todo>")
 def add(todo):
-    connection = sqlite3.connect("todos.db")
+    connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
     cursor.execute(
         f'insert into todos(todo,date,time) values("{todo}","{currentDate()}","{currentTime()}")'
@@ -39,7 +42,7 @@ def add(todo):
 
 @app.route("/check/<int:id>")
 def check(id):
-    connection = sqlite3.connect("todos.db")
+    connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
     cursor.execute(f'update todos set status = "True" where id = {id}')
     cursor.execute(f'update todos set editDate = "{currentDate()}" where id = {id}')
@@ -50,7 +53,7 @@ def check(id):
 
 @app.route("/uncheck/<int:id>")
 def uncheck(id):
-    connection = sqlite3.connect("todos.db")
+    connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
     cursor.execute(f'update todos set status = "False" where id = {id}')
     connection.commit()
@@ -59,7 +62,7 @@ def uncheck(id):
 
 @app.route("/edit/<int:id>/<todo>")
 def edit(id, todo):
-    connection = sqlite3.connect("todos.db")
+    connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
     cursor.execute(f'update todos set todo = "{todo}" where id = {id}')
     connection.commit()
@@ -68,7 +71,7 @@ def edit(id, todo):
 
 @app.route("/delete/<int:id>")
 def delete(id):
-    connection = sqlite3.connect("todos.db")
+    connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
     cursor.execute(f"delete from todos where id = {id}")
     cursor.execute(f"update sqlite_sequence set seq = seq-1")
@@ -82,6 +85,9 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
+    # Log the database path for debugging
+    app.logger.info(f"Database path: {db_path}")
+
     app.run(
         debug=True,
         host=socket.gethostbyname(socket.gethostname()),
